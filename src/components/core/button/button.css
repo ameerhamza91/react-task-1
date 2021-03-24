@@ -1,0 +1,15 @@
+button {
+  color: #fff;
+  width: 50px;
+  display: block;
+  margin: 0 auto 30px;
+  background: #0379fa;
+  font-weight: 600;
+  border: none;
+  height: 36px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
