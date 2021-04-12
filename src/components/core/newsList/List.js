@@ -1,6 +1,5 @@
 import "./list.css";
 import React, { useState, useEffect } from "react";
-// import SmartDataTable from "react-smart-data-table";
 
 import axios from "axios";
 import Button from "../button/Button";
@@ -18,7 +17,7 @@ const NewsList = (props) => {
   //       console.log("Data error.");
   //     });
   // }, []);
-  function fetchData() {
+  const fetchData = () => {
     axios
       .get(api_url)
       .then((resp) => {
@@ -28,7 +27,6 @@ const NewsList = (props) => {
         console.log("Data error.");
       });
   }
-
   return (
     <div>
       <Button fetchData={fetchData} />
