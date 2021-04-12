@@ -1,6 +1,13 @@
 import "./button.css";
 
-function Button() {
-  return <button>Go</button>;
+function Button(props) {
+  function getData() {
+    props.fetchData();
+  }
+  return (
+    <div>
+      <button onClick={getData}>Go</button>
+    </div>
+  );
 }
 export default Button;

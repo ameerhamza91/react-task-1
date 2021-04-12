@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+th,
+td {
+  text-align: left;
+  padding: 10px;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+th {
+  background: #ddd;
+  border: none;
+}
+table button {
+  width: 60px;
+}
