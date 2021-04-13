@@ -1,7 +1,7 @@
 import "./button.css";
 
-function Button(props) {
-  function getData() {
+const Button = (props) => {
+  const getData = () => {
     props.fetchData();
   }
   return (
