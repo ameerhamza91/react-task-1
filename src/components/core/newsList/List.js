@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import axios from "axios";
 import Button from "../button/Button";
+import Card from "../card/Card";
 
 const NewsList = (props) => {
   const [posts, setPosts] = useState([]);
@@ -23,14 +24,7 @@ const NewsList = (props) => {
   return (
       <div>
         <Button fetchData={fetchData} />
-        <div className="card">
-          <strong>Author:</strong>
-          <p>{authorName}</p>
-          <strong>Title:</strong>
-          <p>{newsTitle}</p>
-          <button>Delete</button>
-          <button>Show Dummy</button>
-        </div>
+        <Card name={authorName} title={newsTitle} />
         <table>
           <thead>
           <tr>
