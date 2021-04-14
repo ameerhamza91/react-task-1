@@ -1,6 +1,5 @@
 import "./list.css";
-import React, { useState, useEffect } from "react";
-// import SmartDataTable from "react-smart-data-table";
+import React, { useState } from "react";
 
 import axios from "axios";
 import Button from "../button/Button";
@@ -8,58 +7,53 @@ import Button from "../button/Button";
 const NewsList = (props) => {
   const [posts, setPosts] = useState([]);
   const api_url = "https://www.reddit.com/r/technology/new.json";
-  // useEffect(() => {
-  //   axios
-  //     .get(api_url)
-  //     .then((resp) => {
-  //       setPosts(resp.data.data.children);
-  //     })
-  //     .catch((err) => {
-  //       console.log("Data error.");
-  //     });
-  // }, []);
-  function fetchData() {
-    axios
-      .get(api_url)
-      .then((resp) => {
-        setPosts(resp.data.data.children);
-      })
-      .catch((err) => {
-        console.log("Data error.");
-      });
+
+  const fetchData = async () => {
+    let response = await axios.get(api_url);
+    setPosts(response.data.data.children);
+    // console.log(response.data.data.children);
   }
+  let [authorName, setAuthorName] = useState("John Doe");
+  let [newsTitle, setNewsTitle] = useState("News title goes here.")
+  const showCard = (e) => {
+    setAuthorName(e.data.author);
+    setNewsTitle(e.data.title);
+  };
 
   return (
-    <div>
-      <Button fetchData={fetchData} />
-      <table>
-        <thead>
+      <div>
+        <Button fetchData={fetchData} />
+        <div className="card">
+          <strong>Author:</strong>
+          <p>{authorName}</p>
+          <strong>Title:</strong>
+          <p>{newsTitle}</p>
+          <button>Delete</button>
+          <button>Show Dummy</button>
+        </div>
+        <table>
+          <thead>
           <tr>
             <th>Sr #.</th>
             <th>Author</th>
             <th>Title</th>
             <th>Actions</th>
           </tr>
-        </thead>
-        <tbody>
-          {posts.map((post) => (
-            <tr key={post.data.id}>
-              <td>{post.data.id}</td>
-              <td>{post.data.author}</td>
-              <td>{post.data.title}</td>
-              <td>
-                <button>Details</button>
-              </td>
-            </tr>
+          </thead>
+          <tbody>
+          {posts.map((post, key) => (
+              <tr key={post.data.index}>
+                <td>{key+1}</td>
+                <td>{post.data.author}</td>
+                <td>{post.data.title}</td>
+                <td>
+                  <button onClick={() => showCard(post)}>Details</button>
+                </td>
+              </tr>
           ))}
-        </tbody>
-      </table>
-      {/* <SmartDataTable
-        data={api_url}
-        dataKeyResolver={(response) => response.data.data.children}
-        name="News Table"
-      /> */}
-    </div>
+          </tbody>
+        </table>
+      </div>
   );
 };
 export default NewsList;
