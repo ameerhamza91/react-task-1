@@ -26,9 +26,9 @@ const NewsList = (props) => {
           </tr>
         </thead>
         <tbody>
-          {posts.map((post, key) => (
+          {posts.map((post, index) => (
             <tr key={post.data.index}>
-              <td>{key+1}</td>
+              <td>{index+1}</td>
               <td>{post.data.author}</td>
               <td>{post.data.title}</td>
               <td>
