@@ -17,3 +17,23 @@ th {
 table button {
   width: 60px;
 }
+
+.card {
+  width: 500px;
+  margin: 0 auto 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+.card strong {
+  display: block;
+  margin: 0 0 8px;
+}
+.card p {
+  margin: 0 0 17px;
+}
+.card button {
+  width: 100%;
+  margin: 0 0 10px;
+}
