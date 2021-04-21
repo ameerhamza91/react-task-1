@@ -11,7 +11,6 @@ const NewsList = (props) => {
   const fetchData = async () => {
     let response = await axios.get(api_url);
     setPosts(response.data.data.children);
-    console.log(response.data.data.children);
   }
   return (
     <div>
