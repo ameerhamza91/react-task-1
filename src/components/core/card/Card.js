@@ -8,8 +8,6 @@ const Card = (props) => {
                 <p>{props.name}</p>
                 <strong>Title:</strong>
                 <p>{props.title}</p>
-                <button>Delete</button>
-                <button>Show Dummy</button>
             </div>
         </div>
     )
